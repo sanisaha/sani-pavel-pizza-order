@@ -1,6 +1,8 @@
 let pizza_price = 7.5;
 let topping_price = 0;
 let service_price = 0;
+
+// PIZZA SIZE BLOCK
 const pizzaPrice = (id, value, title) => {
     const pizzaPrice = document.querySelector('#pizza-price');
     const pizzaDetails = document.querySelector('#pizza-details');
@@ -10,6 +12,8 @@ const pizzaPrice = (id, value, title) => {
         pizza_price = +value;
     }
 } 
+
+//TOPPINGS BLOCK
 let toppingsArr = [];
 function selectToppings (value) {
     const toppings = document.querySelector('#toppings');
@@ -17,10 +21,8 @@ function selectToppings (value) {
 
     if (toppingsArr.includes(value)){
         toppingsArr.splice(toppingsArr.indexOf(value), 1); //This is the right way to delete exact item from an array insted of .pop()
-        console.log(toppingsArr);
     } else {
         toppingsArr.push(value);
-        console.log(toppingsArr);
     }
         
     let str = '';
@@ -38,23 +40,34 @@ function selectToppings (value) {
         toppingPrice.textContent = topping_price.toFixed(2) + '€';
     }
 }
-const deliveryPrice = document.querySelector('#service-price');
-const service = document.querySelector('#service');
 
-const serviceDetails = document.querySelector('#selectService');
-const homeService = document.getElementById('home');
-const eatService = document.getElementById('eat');
-const pickService = document.getElementById('pick');
+// SERVICE BLOCK
+const serviceText = document.querySelector('#service');
+const servicePrice = document.querySelector('#service-price');
 
-serviceDetails.addEventListener('change', function getPrice(){
-    deliveryPrice.innerText = this.value;
-    service_price = +this.value;
-})
+function serviceHandler(service_type){
+    if (service_type === 'in'){
+        serviceText.textContent = 'Eat in';
+        servicePrice.textContent = 0 + " €";
+        service_price = 0;
+    } else if (service_type === 'pickup'){
+        serviceText.textContent = 'Pick up';
+        servicePrice.textContent = 0 + " €";
+        service_price = 0;
+    } else if (service_type === 'home'){
+        serviceText.textContent = 'Home delivery';
+        servicePrice.textContent = 5 + " €";
+        service_price = 5;
+    }
+    
+}
 
+
+//TOTAL AMOUNT BLOCK
 let totalPriceChange = document.querySelectorAll('.part');
-console.log(totalPriceChange);
 
 //document.querySelectorAll doesn't have addEventListener method. So we have to make for loop to listen all possible events
+// When any event comes, we changes the Total amount
 for(let i=0; i<totalPriceChange.length; i++){
     totalPriceChange[i].addEventListener('change', priceChange);
 }

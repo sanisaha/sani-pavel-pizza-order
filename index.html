@@ -100,10 +100,10 @@
                     <div>
                         <h3>Select type of service</h3>
                     </div>
-                    <select name="service-type" id="selectService">
-                        <option title="Eat In" value="0" id="eat">Eat in</option>
-                        <option title="Home Delivery" value="5" id="home" onclick="deliveryPrice(this.id, this.value, this.title)">Delivery home, +5€</option>
-                        <option title="Pick Up" value="0" id="pick">Pickup food</option>
+                    <select name="service-type" id="selectService" onchange="serviceHandler(this.value)">
+                        <option value="in">Eat in</option>
+                        <option value="pickup">Pickup food</option>
+                        <option value="home">Home delivery, +5€</option>
                     </select>
                 </div>
             </div>
@@ -121,18 +121,18 @@
                     </tr>
                     <tr>
                         <td id="pizza">Pizza Type</td>
-                        <td id="pizza-details"></td>
-                        <td id="pizza-price"></td>
+                        <td id="pizza-details">2x</td>
+                        <td id="pizza-price">7.50 €</td>
                     </tr>
                     <tr>
                         <td id="pizza">Toppings</td>
-                        <td id="toppings"></td>
-                        <td id="topping-price"></td>
+                        <td id="toppings">No toppings</td>
+                        <td id="topping-price">0 €</td>
                     </tr>
                     <tr>
                         <td id="pizza">Service Type</td>
-                        <td id="service"></td>
-                        <td id="service-price">0</td>
+                        <td id="service">Eat in</td>
+                        <td id="service-price">0 €</td>
                     </tr>
                 </table>
                 <div style="display: flex; align-items: center;">
