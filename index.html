@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza House</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div>
+                <h1>Pizza-House</h1>
+            </div>
+            <div>
+                <ul>
+                    <li>Home</li>
+                    <li>Menu</li>
+                    <li>Orders</li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main style="display: flex;">
+        <div id="front-part" style="width: 70%;">
+        <form style="margin-top: 20px; padding-left: 20px;">
+            <div>
+            <p>Customer: <input type="text" placeholder="your name"></p>
+            </div>
+            <div>
+                <div class="part" id="pizza-size">
+                    <h3>Select the size of pizza</h3>
+                <div>
+                    <input type="radio" name="size" value="7.50" id="first" checked title="2x" onclick="pizzaPrice(this.id, this.value, this.title)">
+                    <label for="first">For 2, the price is 7.50€"</label>   
+                </div>
+                <div>
+                    <input type="radio" name="size" value="10.50" id="second" title="4x" onclick="pizzaPrice(this.id, this.value, this.title)">
+                    <label for="second">For 4, the price is 10.50€"</label>   
+                </div>
+                <div>
+                    <input type="radio" name="size" value="12.50" id="third" title="6x" onclick="pizzaPrice(this.id, this.value, this.title)">
+                    <label for="third">For 6, the price is 12.50€"</label>   
+                </div>
+                <div>
+                    <input type="radio" name="size" value="15.50" id="fourth" title="8x" onclick="pizzaPrice(this.id, this.value, this.title)">
+                    <label for="fourth">For 8, the price is 15.50€"</label>   
+                </div>
+                </div>
+                <div class="part">
+                    <div>
+                        <h3>Toppings you want</h3>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="toppings" id="pineapple" value="pineapple" onclick="selectToppings(this.id, this.value)">
+                        <label for="" >pineapple</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="toppings" id="cheese" value="cheese" onclick="selectToppings(this.id, this.value)">
+                        <label for="">cheese</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="toppings" id="goat" value="goat cheese" onclick="selectToppings(this.id, this.value)">
+                        <label for="">goat cheese</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="toppings" id="jalapino" value="jalapino" onclick="selectToppings(this.id, this.value)">
+                        <label for="">jalapino</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="toppings" id="mozzerela" value="mozzerela" onclick="selectToppings(this.id, this.value)">
+                        <label for="">mozzerela</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="toppings" id="onion" value="onion" onclick="selectToppings(this.id, this.value)">
+                        <label for="">onion</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="toppings" id="green-chili" value="green chili" onclick="selectToppings(this.id, this.value)">
+                        <label for="">green chili</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="toppings" id="tomatoes" value="tomatoes" onclick="selectToppings(this.id, this.value)">
+                        <label for="">tomatoes</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="toppings" id="pickles" value="pickles" onclick="selectToppings(this.id, this.value)">
+                        <label for="">pickles</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="toppings" id="garlic" value="garlic" onclick="selectToppings(this.id, this.value)">
+                        <label for="">garlic</label>
+                    </div>
+                </div>
+                <div class="part">
+                    <div>
+                        <h3>Select type of service</h3>
+                    </div>
+                    <select name="service-type" id="selectService">
+                        <option title="Eat In" value="0" id="eat">Eat in</option>
+                        <option title="Home Delivery" value="5" id="home" onclick="deliveryPrice(this.id, this.value, this.title)">Delivery home, +5€</option>
+                        <option title="Pick Up" value="0" id="pick">Pickup food</option>
+                    </select>
+                </div>
+            </div>
+
+        </form>
+        </div>
+        <aside style="padding-left: 20px;">
+            <h1 style="padding: 10px;">Order Summary</h1>
+            <form action="">
+                <table style="padding: 10px;">
+                    <tr>
+                        <th>Category</th>
+                        <th>Size</th>
+                        <th>Price</th>
+                    </tr>
+                    <tr>
+                        <td id="pizza">Pizza Type</td>
+                        <td id="pizza-details"></td>
+                        <td id="pizza-price"></td>
+                    </tr>
+                    <tr>
+                        <td id="pizza">Toppings</td>
+                        <td id="toppings"></td>
+                        <td id="topping-price"></td>
+                    </tr>
+                    <tr>
+                        <td id="pizza">Service Type</td>
+                        <td id="service"></td>
+                        <td id="service-price">0</td>
+                    </tr>
+                </table>
+                <div style="display: flex; align-items: center;">
+                    <h3>Total amount:</h3>
+                    <p id="totalPrice" style="margin-left: 10px;">0</p>
+                </div>
+            </form>
+        </aside>
+    </main>
+    <footer style="background-color: black; height: 200px; text-align: center;">
+        <p style="color: white; padding-top: 50px;">all copyrights© are reserved by Pizza-House </p>
+    </footer>
+    <script src="/script.js"></script>
+</body>
+</html>

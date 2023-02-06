@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: brown;
+    padding: 30px 40px;
+    color: whitesmoke;
+}
+#front-part {
+    background-image: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: whitesmoke;
+}
+input{
+    margin-left: 20px;
+}
+.part {
+    padding: 30px 0px;
+}
+
+h3{
+    padding: 10px 0;
+}
+nav h1 {
+    font-size: xx-large;
+}
+li {
+    display: inline-block;
+    margin-right: 20px;
+}
+td, th {
+    border: 2px solid #dddddd;
+    text-align: center;
+    padding: 8px 16px;
+  }
